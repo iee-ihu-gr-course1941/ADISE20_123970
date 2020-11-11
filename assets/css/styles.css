@@ -1,0 +1,58 @@
+.tavli {
+    height: 690px;
+    width: 842px;
+    background-image: url("/ADISE20_123970/assets/img/board842.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin: 0 auto;
+}
+
+.pouli {
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: absolute;
+}
+
+.pouli.mavro {
+    background-image: url("/ADISE20_123970/assets/img/black.png");
+}
+
+.pouli.aspro {
+    background-image: url("/ADISE20_123970/assets/img/white.png");
+}
+
+#m1 { left: 100px; bottom: 50px; }    
+#m2 { left: 100px; bottom: 90px; }
+#m3 { left: 690px; bottom: 50px; }
+#m4 { left: 690px; bottom: 80px; }
+#m5 { left: 690px; bottom: 110px; }
+#m6 { left: 690px; bottom: 140px; }
+#m7 { left: 690px; bottom: 170px; }
+#m8 { left: 345px; top: 50px; }
+#m9 { left: 345px; top: 80px; }
+#m10 { left: 345px; top: 110px; }
+#m11 { left: 345px; top: 140px; }
+#m12 { left: 345px; top: 170px; }
+#m13 { left: 495px; top: 50px; }
+#m14 { left: 495px; top: 90px; }
+#m15 { left: 495px; top: 130px; }
+
+#a1 { left: 690px; top: 50px; }
+#a2 { left: 690px; top: 90px; }
+#a3 { left: 100px; top: 50px; }
+#a4 { left: 100px; top: 80px; }
+#a5 { left: 100px; top: 110px; }
+#a6 { left: 100px; top: 140px; }
+#a7 { left: 100px; top: 170px; }
+#a8 { left: 345px; bottom: 50px; }
+#a9 { left: 345px; bottom: 80px; }
+#a10 { left: 345px; bottom: 110px; }
+#a11 { left: 345px; bottom: 140px; }
+#a12 { left: 345px; bottom: 170px; }
+#a13 { left: 495px; bottom: 50px; }
+#a14 { left: 495px; bottom: 90px; }
+#a15 { left: 495px; bottom: 130px; }
+
