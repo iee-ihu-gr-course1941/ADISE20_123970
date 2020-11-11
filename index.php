@@ -1,13 +1,33 @@
 <html>
     <head>
-        <title>PHP Test</title>
+        <title>Doors</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">       
         <link rel="stylesheet" href="/ADISE20_123970/assets/css/styles.css">
     </head>
 
 
     <body>
+        <!-- Header -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-2">
+            <!-- Logo -->
+            <img class="mr-3" src="/ADISE20_123970/assets/img/logo.png" height="35" title="Jimmy Morrison would approve..." alt="logo" />
         
+            <!-- Main Menu -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Join</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+            </ul>    
+        </nav>
+
+        <!-- Content -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -47,8 +67,14 @@
                 </div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <div class="footer text-light text-center m-2 p-2 bg-primary">
+            ADISE 20-21 - Barkolias Alexandros
+        </div>
+
+        <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
     </body>
 </html>

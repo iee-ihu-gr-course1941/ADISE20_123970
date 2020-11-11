@@ -1,3 +1,9 @@
+body {
+    background-image: url("/ADISE20_123970/assets/img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .tavli {
     height: 690px;
     width: 842px;
@@ -55,4 +61,11 @@
 #a13 { left: 495px; bottom: 50px; }
 #a14 { left: 495px; bottom: 90px; }
 #a15 { left: 495px; bottom: 130px; }
+
+.footer { 
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
+    border-color: black; 
+}
 
