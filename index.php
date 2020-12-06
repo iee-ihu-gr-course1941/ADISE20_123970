@@ -24,7 +24,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
                 </li>
-            </ul>    
+            </ul> 
+
+            <!-- login/logout -->   
+            <div class="login text-light">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login">Login</button>
+            </div> 
         </nav>
 
         <!-- Content -->
@@ -68,13 +73,44 @@
             </div>
         </div>
 
+        <!-- modals -->
+        <div id="login" class="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form id="loginForm">  
+                            <!-- username -->
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input id="username" class="form-control" type="text" placeholder="e.g. kostas">
+                            </div>
+
+                            <!-- password -->
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" type="password" placeholder="e.g. 12345...">
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button class="btn btn-info" type="submit">Login</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+                                <p id="loginError" class="text-danger mt-3 d-none"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <div class="footer text-light text-center m-2 p-2 bg-primary">
-            ADISE 20-21 - Barkolias Alexandros
+            ADISE 2020 - Barkolias Alexandros
         </div>
 
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="/ADISE20_123970/assets/js/index.js"></script>
     </body>
 </html>
