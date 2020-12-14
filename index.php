@@ -12,6 +12,8 @@ if (!empty($_SESSION['username'])) {
 <html>
     <head>
         <title>Doors</title>
+        <link rel="icon" href="/ADISE20_123970/assets/img/66.ico" type="image/x-icon" />
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">       
         <link rel="stylesheet" href="/ADISE20_123970/assets/css/styles.css">
