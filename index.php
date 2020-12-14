@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+$logged_in = false;
+if (!empty($_SESSION['username'])) {
+    $logged_in = true;
+}
+
+?>
+
 <html>
     <head>
         <title>Doors</title>
@@ -28,12 +39,17 @@
 
             <!-- login/logout -->   
             <div class="login text-light">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login">Login</button>
+                <?php if ($logged_in) { ?>
+                    <button id="logout" class="btn btn-info" type="button">Logout</button>
+                <?php } else { ?>
+                    <button class="btn btn-info" type="button" data-toggle="modal" data-target="#login">Login</button>
+                <?php } ?>
             </div> 
         </nav>
 
         <!-- Content -->
         <div class="container-fluid">
+            <!-- board -->
             <div class="row">
                 <div class="col">
                     <div class="tavli">

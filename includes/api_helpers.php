@@ -13,6 +13,7 @@ function json_response($code = 200, $message = null)
 
     $status = array(
         200 => '200 OK',
+        204 => '204 No Content',
         400 => '400 Bad Request',
         404 => '404 Not Found',
         405 => '405 Method Not Allowed',

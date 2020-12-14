@@ -9,6 +9,10 @@ $(function() {
 
         login(data);
     });
+
+    $('#logout').on('click', function() {
+        logout();
+    });
 });
 
 
@@ -16,9 +20,9 @@ function login(data) {
     hideLoginError();
 
     $.ajax({
-        url: "api/login.php",
-        method: "POST",
-        dataType: "json",
+        url: 'api/login.php',
+        method: 'POST',
+        dataType: 'json',
         contentType: 'application/json', 
         data: JSON.stringify(data),
         success: function() {
@@ -27,9 +31,30 @@ function login(data) {
         error: function(xhr) {
             response = xhr.responseJSON;
 
+            console.log('login error');
             console.log(response);
 
             showLoginError(response.status, response.message);
+        }
+
+    });
+}
+
+function logout() {
+    console.log('log user out');
+
+    $.ajax({
+        url: 'api/logout.php',
+        method: 'DELETE',
+        contentType: 'application/json', 
+        success: function() {
+            location.reload();
+        },
+        error: function(xhr) {
+            response = xhr.responseJSON;
+
+            console.log('logout error');
+            console.log(response);
         }
 
     });
