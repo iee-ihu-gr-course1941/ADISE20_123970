@@ -16,6 +16,7 @@ if (!empty($_SESSION['username'])) {
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">       
+        <link rel="stylesheet" href="/ADISE20_123970/assets/css/fontawesome.css">
         <link rel="stylesheet" href="/ADISE20_123970/assets/css/styles.css">
     </head>
 
@@ -24,27 +25,43 @@ if (!empty($_SESSION['username'])) {
         <!-- Header -->
         <nav class="navbar navbar-expand navbar-dark bg-primary m-2">
             <!-- Logo -->
-            <img class="mr-3" src="/ADISE20_123970/assets/img/logo.png" height="35" title="Jimmy Morrison would approve..." alt="logo" />
+            <img class="mr-5" src="/ADISE20_123970/assets/img/logo.png" height="35" title="Jimmy Morrison would approve..." alt="logo" />
         
             <!-- Main Menu -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-plus-circle"></i>
+                        Create
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Join</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-handshake"></i>
+                        Join
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-book"></i>
+                        Help
+                    </a>
                 </li>
             </ul> 
 
             <!-- login/logout -->   
             <div class="login text-light">
                 <?php if ($logged_in) { ?>
-                    <button id="logout" class="btn btn-info" type="button">Logout</button>
+                    <img class="mr-1" src="/ADISE20_123970/assets/img/avatars/<?php echo $_SESSION['avatar']; ?>" height="40" alt="avatar" />
+                    <span><?php echo $_SESSION['username']; ?></span>
+                    <button id="logout" class="btn btn-link text-light" type="button" title="logout">
+                        <i class="fas fa-door-closed mr-1"></i>
+                    </button>
                 <?php } else { ?>
-                    <button class="btn btn-info" type="button" data-toggle="modal" data-target="#login">Login</button>
+                    <button class="btn btn-info" type="button" data-toggle="modal" data-target="#login">
+                        <i class="fas fa-door-open mr-1"></i>
+                        Login
+                    </button>
                 <?php } ?>
             </div> 
         </nav>

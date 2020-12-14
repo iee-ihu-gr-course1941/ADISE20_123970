@@ -37,7 +37,11 @@ if ($password != $user['password']) {
 }
 
 session_start();
-$_SESSION["username"] = $username;
+
+$_SESSION['user_id']  = $user['user_id'];
+$_SESSION['username'] = $username;
+$_SESSION['avatar']   = $user['avatar'];
+
 echo json_response(200, 'Success');
 exit();
 
