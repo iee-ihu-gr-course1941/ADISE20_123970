@@ -30,4 +30,14 @@ function json_response($code = 200, $message = null)
     ));
 }
 
+function generate_token($characters)
+{
+    // https://stackoverflow.com/questions/18910814/best-practice-to-generate-random-token-for-forgot-password/18910943
+    
+    $length = $characters / 2;
+    $token  = bin2hex(random_bytes($length));
+
+    return $token;
+}
+
 ?>
