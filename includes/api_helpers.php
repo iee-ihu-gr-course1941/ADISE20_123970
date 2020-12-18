@@ -1,5 +1,28 @@
 <?php
 
+function authenticate()
+{
+    if (!isset($_SERVER['HTTP_X_TOKEN'])) {
+        echo json_response(400, 'Token not sent in the request headers');
+        exit();
+    }
+    
+    $user_token = $_SERVER['HTTP_X_TOKEN'];
+    $user       = get_user_by_token($token);
+    
+    if ($user === false) {
+        echo json_response(500, 'Internal Server Error');
+        exit();
+    }
+    
+    if (empty($user)) {
+        echo json_response(403, 'User not logged in');
+        exit();
+    }
+
+    return $user;
+}
+
 function json_response($code = 200, $message = null)
 {
     // clear the old headers
@@ -15,6 +38,7 @@ function json_response($code = 200, $message = null)
         200 => '200 OK',
         204 => '204 No Content',
         400 => '400 Bad Request',
+        403 => '403 Forbidden'
         404 => '404 Not Found',
         405 => '405 Method Not Allowed',
         500 => '500 Internal Server Error'
@@ -38,6 +62,25 @@ function generate_token($characters)
     $token  = bin2hex(random_bytes($length));
 
     return $token;
+}
+
+function get_user_by_token($token)
+{
+    $conn = new mysqli(HOST,USERNAME,DB_PWD,DATABASE);
+    $sql  = "SELECT * FROM user WHERE token='$token'";
+
+    mysqli_set_charset($conn, "utf8");
+
+    if (mysqli_connect_errno()) {
+        return false;
+    }
+
+    $result = mysqli_query($conn, $sql);
+    $user   = mysqli_fetch_assoc($result);
+
+    mysqli_close($conn);
+
+    return $user;
 }
 
 ?>
