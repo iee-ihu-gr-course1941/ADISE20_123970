@@ -6,12 +6,11 @@
  * All API routes are declared here
  */
 
-
 require("../includes/db_conf.php");
 require("../includes/api_helpers.php");
 require("./doors/board.php");
 
-$user    = authenticate();
+$user    = authenticate($_SERVER['HTTP_X_TOKEN']);
 $method  = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 $data    = json_decode(file_get_contents('php://input'), true);

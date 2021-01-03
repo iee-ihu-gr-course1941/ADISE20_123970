@@ -30,7 +30,7 @@ if (!empty($_SESSION['username'])) {
             <!-- Main Menu -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a id="createGame" class="nav-link" href="#">
                         <i class="fas fa-plus-circle"></i>
                         Create
                     </a>
@@ -72,37 +72,74 @@ if (!empty($_SESSION['username'])) {
             <div class="row">
                 <div class="col">
                     <div class="tavli">
-                        <div id="m1" class="pouli mavro"></div>
-                        <div id="m2" class="pouli mavro"></div>
-                        <div id="m3" class="pouli mavro"></div>
-                        <div id="m4" class="pouli mavro"></div>
-                        <div id="m5" class="pouli mavro"></div>
-                        <div id="m6" class="pouli mavro"></div>
-                        <div id="m7" class="pouli mavro"></div>
-                        <div id="m8" class="pouli mavro"></div>
-                        <div id="m9" class="pouli mavro"></div>
-                        <div id="m10" class="pouli mavro"></div>
-                        <div id="m11" class="pouli mavro"></div>
-                        <div id="m12" class="pouli mavro"></div>
-                        <div id="m13" class="pouli mavro"></div>
-                        <div id="m14" class="pouli mavro"></div>
-                        <div id="m15" class="pouli mavro"></div>
+                        <!-- game stats -->
+                        <div id="gameStats" class="d-none">
+                            <h3 class="text-center m-0">Playing game with ID <span id="gameId"></span></h3>
+                        </div>
+
+                        <!-- mazema - mavra poulia (player 1) -->
+                        <div class="mazema_mavra">
+                            <div id="m1" class="pouli mavro"></div>
+                            <div id="m2" class="pouli mavro"></div>
+                            <div id="m3" class="pouli mavro"></div>
+                            <div id="m4" class="pouli mavro"></div>
+                            <div id="m5" class="pouli mavro"></div>
+                            <div id="m6" class="pouli mavro"></div>
+                            <div id="m7" class="pouli mavro"></div>
+                            <div id="m8" class="pouli mavro"></div>
+                            <div id="m9" class="pouli mavro"></div>
+                            <div id="m10" class="pouli mavro"></div>
+                            <div id="m11" class="pouli mavro"></div>
+                            <div id="m12" class="pouli mavro"></div>
+                            <div id="m13" class="pouli mavro"></div>
+                            <div id="m14" class="pouli mavro"></div>
+                            <div id="m15" class="pouli mavro"></div>
+                        </div>
+
+                        <!-- mazema - aspra poulia (player 2) -->
+                        <div class="mazema_aspra">
+                            <div id="a1" class="pouli aspro"></div>
+                            <div id="a2" class="pouli aspro"></div>
+                            <div id="a3" class="pouli aspro"></div>
+                            <div id="a4" class="pouli aspro"></div>
+                            <div id="a5" class="pouli aspro"></div>
+                            <div id="a6" class="pouli aspro"></div>
+                            <div id="a7" class="pouli aspro"></div>
+                            <div id="a8" class="pouli aspro"></div>
+                            <div id="a9" class="pouli aspro"></div>
+                            <div id="a10" class="pouli aspro"></div>
+                            <div id="a11" class="pouli aspro"></div>
+                            <div id="a12" class="pouli aspro"></div>
+                            <div id="a13" class="pouli aspro"></div>
+                            <div id="a14" class="pouli aspro"></div>
+                            <div id="a15" class="pouli aspro"></div>
+                        </div>
                         
-                        <div id="a1" class="pouli aspro"></div>
-                        <div id="a2" class="pouli aspro"></div>
-                        <div id="a3" class="pouli aspro"></div>
-                        <div id="a4" class="pouli aspro"></div>
-                        <div id="a5" class="pouli aspro"></div>
-                        <div id="a6" class="pouli aspro"></div>
-                        <div id="a7" class="pouli aspro"></div>
-                        <div id="a8" class="pouli aspro"></div>
-                        <div id="a9" class="pouli aspro"></div>
-                        <div id="a10" class="pouli aspro"></div>
-                        <div id="a11" class="pouli aspro"></div>
-                        <div id="a12" class="pouli aspro"></div>
-                        <div id="a13" class="pouli aspro"></div>
-                        <div id="a14" class="pouli aspro"></div>
-                        <div id="a15" class="pouli aspro"></div>
+                        <!-- theseis sto tamplo -->
+                        <div class="thesi thesi1"></div>
+                        <div class="thesi thesi2"></div>
+                        <div class="thesi thesi3"></div>
+                        <div class="thesi thesi4"></div>
+                        <div class="thesi thesi5"></div>
+                        <div class="thesi thesi6"></div>
+                        <div class="thesi thesi7"></div>
+                        <div class="thesi thesi8"></div>
+                        <div class="thesi thesi9"></div>
+                        <div class="thesi thesi10"></div>
+                        <div class="thesi thesi11"></div>
+                        <div class="thesi thesi12"></div>
+                        <div class="thesi thesi13"></div>
+                        <div class="thesi thesi14"></div>
+                        <div class="thesi thesi15"></div>
+                        <div class="thesi thesi16"></div>
+                        <div class="thesi thesi17"></div>
+                        <div class="thesi thesi18"></div>
+                        <div class="thesi thesi19"></div>
+                        <div class="thesi thesi20"></div>
+                        <div class="thesi thesi21"></div>
+                        <div class="thesi thesi22"></div>
+                        <div class="thesi thesi23"></div>
+                        <div class="thesi thesi24"></div>
                     </div>
                 </div>
             </div>
@@ -148,7 +185,10 @@ if (!empty($_SESSION['username'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         
         <script>
-            var token = '<?php if (isset($_SESSION['token'])) { echo $_SESSION['token']; } ?>';
+            var me = {
+                username: '<?php if ($logged_in) { echo $_SESSION['username']; } else { echo "guest"; } ?>',
+                token   : '<?php if ($logged_in) { echo $_SESSION['token']; } ?>'
+            };
         </script>
         <script src="/ADISE20_123970/assets/js/index.js"></script>
     </body>

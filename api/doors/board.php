@@ -55,12 +55,12 @@ function create_game($user)
         exit();
     }
 
-    $response = array(
+    $response_data = array(
         'game_id'    => $game_id,
         'board_data' => $board_data
     );
 
-    echo json_response(201, $response);
+    echo json_response(201, 'Game created', $response_data);
     exit();
 }
 

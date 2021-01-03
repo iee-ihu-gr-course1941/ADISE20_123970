@@ -1,14 +1,13 @@
 <?php
 
-function authenticate()
+function authenticate($token)
 {
-    if (!isset($_SERVER['HTTP_X_TOKEN'])) {
+    if (!isset($token)) {
         echo json_response(400, 'Token not sent in the request headers');
         exit();
     }
-    
-    $user_token = $_SERVER['HTTP_X_TOKEN'];
-    $user       = get_user_by_token($token);
+
+    $user = get_user_by_token($token);
     
     if ($user === false) {
         echo json_response(500, 'Internal Server Error');
@@ -23,7 +22,7 @@ function authenticate()
     return $user;
 }
 
-function json_response($code = 200, $message = null)
+function json_response($code = 200, $message = null, $data = null)
 {
     // clear the old headers
     header_remove();
@@ -36,9 +35,10 @@ function json_response($code = 200, $message = null)
 
     $status = array(
         200 => '200 OK',
+        201 => '201 Created',
         204 => '204 No Content',
         400 => '400 Bad Request',
-        403 => '403 Forbidden'
+        403 => '403 Forbidden',
         404 => '404 Not Found',
         405 => '405 Method Not Allowed',
         500 => '500 Internal Server Error'
@@ -46,11 +46,12 @@ function json_response($code = 200, $message = null)
     
     // ok, validation error, or failure
     header('Status: '.$status[$code]);
-    
+
     // return the encoded json
     return json_encode(array(
         'status'  => $code,
-        'message' => $message
+        'message' => $message,
+        'data'    => $data
     ));
 }
 
