@@ -2,6 +2,12 @@
 
 /**
  * The Board Web Service
+ * 
+ * Endpoints:
+ * TODO
+ *  - [GET] /board/          Get the board
+ *  - [GET] /board/piece/{x} Get the piece(s) at location x
+ *  - [PUT] /board/piece/{x} Move a piece to location x
  */
 
 function board_routes($user, $endpoint, $method, $parameters, $data)
@@ -29,7 +35,7 @@ function board_routes($user, $endpoint, $method, $parameters, $data)
         //move_piece();
     }
     
-    // 404 not found
+    // 405 method not allowed
     else {
         echo json_response(405, 'Method Not Allowed');
         exit();

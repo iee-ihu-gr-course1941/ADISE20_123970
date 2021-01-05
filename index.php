@@ -36,7 +36,7 @@ if (!empty($_SESSION['username'])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a id="joinGame" class="nav-link" href="#">
                         <i class="fas fa-handshake"></i>
                         Join
                     </a>
@@ -73,8 +73,13 @@ if (!empty($_SESSION['username'])) {
                 <div class="col">
                     <div class="tavli">
                         <!-- game stats -->
-                        <div id="gameStats" class="d-none">
-                            <h3 class="text-center m-0">Playing game with ID <span id="gameId"></span></h3>
+                        <div id="gameStats" class="text-center d-none">
+                            <div class="row">
+                                <div class="col-3">Game: <span id="gameId"></span></div>
+                                <div class="col-3">Player 1: <span id="player1"></span></div>
+                                <div class="col-3">Player 2: <span id="player2"></span></div>
+                                <div class="col-3"><span id="status"></span></div>
+                            </div>
                         </div>
 
                         <!-- mazema - mavra poulia (player 1) -->

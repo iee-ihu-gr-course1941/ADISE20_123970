@@ -8,7 +8,6 @@
 
 require("../includes/db_conf.php");
 require("../includes/api_helpers.php");
-require("./doors/board.php");
 
 $user    = authenticate($_SERVER['HTTP_X_TOKEN']);
 $method  = $_SERVER['REQUEST_METHOD'];
@@ -21,7 +20,12 @@ $endpoint    = array_shift($request);
 $parameters  = $request;
 
 switch ($web_service) {
+    case 'game':
+        require("./doors/game.php");
+        game_routes($user, $endpoint, $method, $parameters, $data);
+        break;
     case 'board':
+        require("./doors/board.php");
         board_routes($user, $endpoint, $method, $parameters, $data);
         break;
     default:
