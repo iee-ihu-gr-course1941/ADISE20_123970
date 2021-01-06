@@ -98,7 +98,7 @@ if (!empty($_SESSION['username'])) {
                         </div>
 
                         <!-- mazema - mavra poulia (player 1) -->
-                        <div class="mazema_mavra">
+                        <div class="mazema_mavro">
                             <div id="m1" class="pouli mavro"></div>
                             <div id="m2" class="pouli mavro"></div>
                             <div id="m3" class="pouli mavro"></div>
@@ -117,7 +117,7 @@ if (!empty($_SESSION['username'])) {
                         </div>
 
                         <!-- mazema - aspra poulia (player 2) -->
-                        <div class="mazema_aspra">
+                        <div class="mazema_aspro">
                             <div id="a1" class="pouli aspro"></div>
                             <div id="a2" class="pouli aspro"></div>
                             <div id="a3" class="pouli aspro"></div>
@@ -136,30 +136,30 @@ if (!empty($_SESSION['username'])) {
                         </div>
                         
                         <!-- theseis sto tamplo -->
-                        <div class="thesi thesi1"></div>
-                        <div class="thesi thesi2"></div>
-                        <div class="thesi thesi3"></div>
-                        <div class="thesi thesi4"></div>
-                        <div class="thesi thesi5"></div>
-                        <div class="thesi thesi6"></div>
-                        <div class="thesi thesi7"></div>
-                        <div class="thesi thesi8"></div>
-                        <div class="thesi thesi9"></div>
-                        <div class="thesi thesi10"></div>
-                        <div class="thesi thesi11"></div>
-                        <div class="thesi thesi12"></div>
-                        <div class="thesi thesi13"></div>
-                        <div class="thesi thesi14"></div>
-                        <div class="thesi thesi15"></div>
-                        <div class="thesi thesi16"></div>
-                        <div class="thesi thesi17"></div>
-                        <div class="thesi thesi18"></div>
-                        <div class="thesi thesi19"></div>
-                        <div class="thesi thesi20"></div>
-                        <div class="thesi thesi21"></div>
-                        <div class="thesi thesi22"></div>
-                        <div class="thesi thesi23"></div>
-                        <div class="thesi thesi24"></div>
+                        <div class="thesi thesi1" data-pos="1"></div>
+                        <div class="thesi thesi2" data-pos="2"></div>
+                        <div class="thesi thesi3" data-pos="3"></div>
+                        <div class="thesi thesi4" data-pos="4"></div>
+                        <div class="thesi thesi5" data-pos="5"></div>
+                        <div class="thesi thesi6" data-pos="6"></div>
+                        <div class="thesi thesi7" data-pos="7"></div>
+                        <div class="thesi thesi8" data-pos="8"></div>
+                        <div class="thesi thesi9" data-pos="9"></div>
+                        <div class="thesi thesi10" data-pos="10"></div>
+                        <div class="thesi thesi11" data-pos="11"></div>
+                        <div class="thesi thesi12" data-pos="12"></div>
+                        <div class="thesi thesi13" data-pos="13"></div>
+                        <div class="thesi thesi14" data-pos="14"></div>
+                        <div class="thesi thesi15" data-pos="15"></div>
+                        <div class="thesi thesi16" data-pos="16"></div>
+                        <div class="thesi thesi17" data-pos="17"></div>
+                        <div class="thesi thesi18" data-pos="18"></div>
+                        <div class="thesi thesi19" data-pos="19"></div>
+                        <div class="thesi thesi20" data-pos="20"></div>
+                        <div class="thesi thesi21" data-pos="21"></div>
+                        <div class="thesi thesi22" data-pos="22"></div>
+                        <div class="thesi thesi23" data-pos="23"></div>
+                        <div class="thesi thesi24" data-pos="24"></div>
                     </div>
                 </div>
             </div>
@@ -213,6 +213,7 @@ if (!empty($_SESSION['username'])) {
         <script src="/ADISE20_123970/assets/js/cookies.js"></script>
         <script src="/ADISE20_123970/assets/js/login.js"></script>
         <script src="/ADISE20_123970/assets/js/dice.js"></script>
+        <script src="/ADISE20_123970/assets/js/move.js"></script>
         <script src="/ADISE20_123970/assets/js/clock.js"></script>
         <script src="/ADISE20_123970/assets/js/index.js"></script>
     </body>

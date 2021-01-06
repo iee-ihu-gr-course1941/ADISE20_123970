@@ -81,6 +81,11 @@ $(function() {
             alert('If you\'re seeing this, something went really wrong... LoL');
         }
     });
+
+    // select piece
+    $('.thesi').on('click', '.pouli', function() {
+        selectPiece(this);
+    });
 });
 
 
@@ -194,6 +199,7 @@ function createGame(token) {
             headers    : { 'X-Token': token },
             method     : 'POST',
             contentType: 'application/json',
+            cache      : false,
             success    : function(response) {
                 var game_id = response.data.game_id;
                 setCookie('game_id', game_id, 1);
@@ -235,6 +241,7 @@ function joinGame(token) {
             headers    : { 'X-Token': token },
             method     : 'PUT',
             contentType: 'application/json',
+            cache      : false,
             data       : JSON.stringify({ game_id: game_id }),
             success    : function(response) {
                 var game_id = response.data.game_id;
@@ -262,6 +269,7 @@ function loadGame(game_id, token) {
         headers    : { 'X-Token': token },
         method     : 'GET',
         contentType: 'application/json',
+        cache      : false,
         success    : function(response) {
             window.game = response.data;
             setCookie('game_id', window.game.game_id, 1);
@@ -292,6 +300,7 @@ function syncBoard(game_id, token) {
         headers    : { 'X-Token': token },
         method     : 'GET',
         contentType: 'application/json',
+        cache      : false,
         success    : function(response) {
             window.board            = response.data;
             window.board.board_data = JSON.parse(response.data.board_data);
@@ -321,6 +330,7 @@ function rollStart(game_id, token) {
         data       : JSON.stringify({ game_id: game_id }),
         dataType   : 'json',
         contentType: 'application/json',
+        cache      : false,
         success    : function(response) {
             console.log('rolled dice (start)');
             console.log(response);
@@ -340,8 +350,6 @@ function rollStart(game_id, token) {
     });
 }
 
-
-// TODO: here
 function rollTurn(game_id, token) {
     console.log('rolling dice (turn)');
 
@@ -352,11 +360,14 @@ function rollTurn(game_id, token) {
         data       : JSON.stringify({ game_id: game_id }),
         dataType   : 'json',
         contentType: 'application/json',
+        cache      : false,
         success    : function(response) {
             console.log('rolled dice (turn)');
             console.log(response);
 
-            // TODO: make move
+            window.board.die_1 = response.data.die_1;
+            window.board.die_2 = response.data.die_2;
+            updateDice(response.data.die_1, response.data.die_2);
         },
         error      : function(xhr) {
             response = xhr.responseJSON;
