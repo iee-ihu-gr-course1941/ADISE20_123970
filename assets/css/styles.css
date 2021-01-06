@@ -21,6 +21,36 @@ body {
     height: 50px;
 }
 
+.roll_dice {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 38px);
+}
+
+.dice {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 100px;
+}
+
+.die {
+    font-size: 40px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.die.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
 .mazema_mavra {
     position: absolute;
     left: 25px;

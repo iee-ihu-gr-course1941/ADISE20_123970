@@ -82,6 +82,17 @@ if (!empty($_SESSION['username'])) {
                             </div>
                         </div>
 
+                        <!-- roll dice & dice -->
+                        <button id="rollDice" class="roll_dice btn btn-info" type="button">
+                            <i class="fas fa-fw fa-dice mr-1"></i>
+                            Roll
+                        </button>
+                        <div id="dice" class="dice text-light d-none">
+                            <i id="diceLoading" class="die loading fas fa-fw fa-dice"></i>
+                            <i id="die1" class="die fas fa-fw fa-dice-one d-none"></i>
+                            <i id="die2" class="die fas fa-fw fa-dice-six d-none"></i>
+                        </div>
+
                         <!-- mazema - mavra poulia (player 1) -->
                         <div class="mazema_mavra">
                             <div id="m1" class="pouli mavro"></div>
@@ -195,6 +206,9 @@ if (!empty($_SESSION['username'])) {
                 token   : '<?php if ($logged_in) { echo $_SESSION['token']; } ?>'
             };
         </script>
+        <script src="/ADISE20_123970/assets/js/cookies.js"></script>
+        <script src="/ADISE20_123970/assets/js/login.js"></script>
+        <script src="/ADISE20_123970/assets/js/dice.js"></script>
         <script src="/ADISE20_123970/assets/js/index.js"></script>
     </body>
 </html>

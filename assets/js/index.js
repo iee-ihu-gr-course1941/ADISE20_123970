@@ -49,67 +49,12 @@ $(function() {
             alert('Please login to create or join a game');
         }
     });
+
+    // roll dice
+    $('#rollDice').on('click', function() {
+        rollDice(me.token);
+    });
 });
-
-function login(data) {
-    console.log('logging user in');
-
-    hideLoginError();
-
-    $.ajax({
-        url: 'api/login.php',
-        method: 'POST',
-        dataType: 'json',
-        contentType: 'application/json', 
-        data: JSON.stringify(data),
-        success: function() {
-            location.reload();
-        },
-        error: function(xhr) {
-            response = xhr.responseJSON;
-
-            console.log('login error');
-            console.log(response);
-
-            showLoginError(response.status, response.message);
-        }
-
-    });
-}
-
-function logout() {
-    console.log('logging user out');
-
-    $.ajax({
-        url: 'api/logout.php',
-        method: 'DELETE',
-        contentType: 'application/json', 
-        success: function() {
-            location.reload();
-        },
-        error: function(xhr) {
-            response = xhr.responseJSON;
-
-            console.log('logout error');
-            console.log(response);
-        }
-
-    });
-}
-
-function hideLoginError() {
-    console.log('hiding login error');
-
-    $('#loginError').text('');
-    $('#loginError').addClass('d-none');
-}
-
-function showLoginError(status, text) {
-    console.log('showing login error');
-
-    $('#loginError').text(text);
-    $('#loginError').removeClass('d-none');
-}
 
 function loadGame(game_id, token) {
     console.log('loading game');
@@ -121,8 +66,7 @@ function loadGame(game_id, token) {
         contentType: 'application/json',
         success    : function(response) {
             window.game = response.data;
-
-            updateGameStatus();
+            refreshUI();
         },
         error      : function(xhr) {
             response = xhr.responseJSON;
@@ -153,7 +97,6 @@ function createGame(token) {
             contentType: 'application/json',
             success    : function(response) {
                 var game_id = response.data.game_id;
-                
                 setCookie('game_id', game_id, 1);
                 loadGame(game_id, window.me.token);
             },
@@ -196,7 +139,6 @@ function joinGame(token) {
             data       : JSON.stringify({ game_id: game_id }),
             success    : function(response) {
                 var game_id = response.data.game_id;
-                
                 setCookie('game_id', game_id, 1);
                 loadGame(game_id, window.me.token);
             },
@@ -213,39 +155,12 @@ function joinGame(token) {
     }
 }
 
-function updateGameStatus() {
-    console.log('showing game stats');
+function refreshUI() {
+    console.log('refreshing UI');
 
     $('#gameStats').removeClass('d-none');
     $('#gameId').text(game.game_id);
     $('#player1').text(game.player_1);
     $('#player2').text(game.player_2);
     $('#status').text(game.status);
-}
-
-function setCookie(name, value, days) {
-    var d = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    
-    for (var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-
-    return "";
 }
