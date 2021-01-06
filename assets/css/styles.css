@@ -110,19 +110,19 @@ body {
     width: 50px;
 }
 
-.thesi1  { bottom: 50px; left: calc(100px + 0 * 50px); }
-.thesi2  { bottom: 50px; left: calc(100px + 1 * 50px); }
-.thesi3  { bottom: 50px; left: calc(100px + 2 * 50px); }
-.thesi4  { bottom: 50px; left: calc(100px + 3 * 50px); }
-.thesi5  { bottom: 50px; left: calc(100px + 4 * 50px); }
-.thesi6  { bottom: 50px; left: calc(100px + 5 * 50px); }
+.thesi1  { bottom: 50px; left: calc(100px + 0 * 50px); transform: rotate(180deg);}
+.thesi2  { bottom: 50px; left: calc(100px + 1 * 50px); transform: rotate(180deg); }
+.thesi3  { bottom: 50px; left: calc(100px + 2 * 50px); transform: rotate(180deg); }
+.thesi4  { bottom: 50px; left: calc(100px + 3 * 50px); transform: rotate(180deg); }
+.thesi5  { bottom: 50px; left: calc(100px + 4 * 50px); transform: rotate(180deg); }
+.thesi6  { bottom: 50px; left: calc(100px + 5 * 50px); transform: rotate(180deg); }
 
-.thesi7  { bottom: 50px; left: calc(446px + 0 * 50px); }
-.thesi8  { bottom: 50px; left: calc(446px + 1 * 50px); }
-.thesi9  { bottom: 50px; left: calc(446px + 2 * 50px); }
-.thesi10 { bottom: 50px; left: calc(446px + 3 * 50px); }
-.thesi11 { bottom: 50px; left: calc(446px + 4 * 50px); }
-.thesi12 { bottom: 50px; left: calc(446px + 5 * 50px); }
+.thesi7  { bottom: 50px; left: calc(446px + 0 * 50px); transform: rotate(180deg); }
+.thesi8  { bottom: 50px; left: calc(446px + 1 * 50px); transform: rotate(180deg); }
+.thesi9  { bottom: 50px; left: calc(446px + 2 * 50px); transform: rotate(180deg); }
+.thesi10 { bottom: 50px; left: calc(446px + 3 * 50px); transform: rotate(180deg); }
+.thesi11 { bottom: 50px; left: calc(446px + 4 * 50px); transform: rotate(180deg); }
+.thesi12 { bottom: 50px; left: calc(446px + 5 * 50px); transform: rotate(180deg); }
 
 .thesi18 { top: 50px; left: calc(446px + 0 * 50px); }
 .thesi17 { top: 50px; left: calc(446px + 1 * 50px); }

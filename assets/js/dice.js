@@ -1,9 +1,20 @@
-function showRollDice() {
-    $('#rollDice').removeClass('d-none');
+function showRollDice(btn) {
+    if (btn == 'start') {
+        $('#rollStart').removeClass('d-none');
+    }
+
+    if (btn == 'turn') {
+        $('#rollTurn').removeClass('d-none');
+    }
 }
 
 function hideRollDice() {
-    $('#rollDice').addClass('d-none');
+    $('#rollStart').addClass('d-none');
+    $('#rollTurn').addClass('d-none');
+}
+
+function deleteRollStart() {
+    $('#rollStart').remove();
 }
 
 function showDiceLoading() {
@@ -13,8 +24,12 @@ function showDiceLoading() {
     $('#die2').addClass('d-none');
 }
 
-function updateDice(die1, die2) {
+function hideDiceLoading() {
     $('#diceLoading').addClass('d-none');
+}
+
+function updateDice(die1, die2) {
+    hideDiceLoading();
 
     if (die1) {
         setDie(1, die1);

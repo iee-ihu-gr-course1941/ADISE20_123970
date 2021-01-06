@@ -83,7 +83,11 @@ if (!empty($_SESSION['username'])) {
                         </div>
 
                         <!-- roll dice & dice -->
-                        <button id="rollDice" class="roll_dice btn btn-primary d-none" type="button">
+                        <button id="rollStart" class="roll_dice btn btn-primary d-none" type="button">
+                            <i class="fas fa-fw fa-dice mr-1"></i>
+                            Start
+                        </button>
+                        <button id="rollTurn" class="roll_dice btn btn-primary d-none" type="button">
                             <i class="fas fa-fw fa-dice mr-1"></i>
                             Roll
                         </button>
