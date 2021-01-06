@@ -22,10 +22,12 @@ $parameters  = $request;
 switch ($web_service) {
     case 'game':
         require("./doors/game.php");
+        require("./doors/model/game.php");
         game_routes($user, $endpoint, $method, $parameters, $data);
         break;
     case 'board':
         require("./doors/board.php");
+        require("./doors/model/board.php");
         board_routes($user, $endpoint, $method, $parameters, $data);
         break;
     default:

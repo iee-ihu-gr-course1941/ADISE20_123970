@@ -1,13 +1,16 @@
-function rollDice(token) {
-    console.log('rolling dice');
+function showRollDice() {
+    $('#rollDice').removeClass('d-none');
+}
 
+function hideRollDice() {
     $('#rollDice').addClass('d-none');
+}
+
+function showDiceLoading() {
     $('#dice').removeClass('d-none');
     $('#diceLoading').removeClass('d-none');
     $('#die1').addClass('d-none');
     $('#die2').addClass('d-none');
-
-    // TODO: AJAX
 }
 
 function updateDice(die1, die2) {

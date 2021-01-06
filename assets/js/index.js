@@ -1,6 +1,14 @@
+//
 // global variables (window)
+//
+
 var game  = {};
 var board = {};
+
+
+//
+// Page loaded
+//
 
 $(function() {
     // load game if already joined
@@ -52,33 +60,93 @@ $(function() {
 
     // roll dice
     $('#rollDice').on('click', function() {
-        rollDice(me.token);
+        if (me.token) {
+            rollDice(me.token);
+        } else {
+            // TODO: make pretty, e.g. modal
+            alert('If you\'re seeing this, something went really wrong... LoL');
+        }
     });
 });
 
-function loadGame(game_id, token) {
-    console.log('loading game');
 
-    $.ajax({
-        url        : 'api/doors.php/game/' + game_id,
-        headers    : { 'X-Token': token },
-        method     : 'GET',
-        contentType: 'application/json',
-        success    : function(response) {
-            window.game = response.data;
-            refreshUI();
-        },
-        error      : function(xhr) {
-            response = xhr.responseJSON;
+//
+// UI
+//
 
-            console.log('load game error');
-            console.log(response);
+function play() {
+    refreshGameStatus();
+    refreshBoard();
 
-            // TODO: make pretty, e.g. modal
-            alert('Error loading game, status: ' + response.status + ', message: ' + response.message);
-        }
-    });
+    switch (window.me.username) {
+        // host
+        case window.game.player_1:
+            var am_player = 1;
+            break;
+        // rival
+        case window.game.player_2:
+            var am_player = 2;
+            break;
+        // guest
+        default:
+            var am_player = 0;
+            break;
+    }
+
+    // TODO:
+    switch (window.game.status) {
+        case 'game created':
+        case 'game started':
+            showRollDice();
+            break;
+        case 'player 1 turn':
+            (am_player == 1) ? showRollDice() : hideRollDice()
+            break;
+        case 'player 2 turn':
+            (am_player == 2) ? showRollDice() : hideRollDice()
+            break;
+        case 'game ended':
+            stopGameTick();
+            break;
+        case 'game aborted':
+            stopGameTick();
+            break;
+    }
 }
+
+function refreshGameStatus() {
+    console.log('refreshing game status bar');
+
+    $('#gameStats').removeClass('d-none');
+    $('#gameId').text(window.game.game_id);
+    $('#player1').text(window.game.player_1);
+    $('#player2').text(window.game.player_2);
+    $('#status').text(window.game.status);
+}
+
+function refreshBoard() {
+    console.log('refreshing board');
+
+    // TODO
+}
+
+function rollDice(token) {
+    hideRollDice();
+    showDiceLoading();
+
+    if (window.game.status == 'game created' || window.game.status == 'game started') {
+        rollStart(token);
+    }
+
+    if (window.game.status == 'player 1 turn' || window.game.status == 'player 2 turn') {
+        rollTurn(token);
+    }
+}
+
+
+//
+// AJAX
+//
 
 function createGame(token) {
     console.log('creating game');
@@ -155,12 +223,73 @@ function joinGame(token) {
     }
 }
 
-function refreshUI() {
-    console.log('refreshing UI');
+function loadGame(game_id, token) {
+    console.log('loading game');
 
-    $('#gameStats').removeClass('d-none');
-    $('#gameId').text(game.game_id);
-    $('#player1').text(game.player_1);
-    $('#player2').text(game.player_2);
-    $('#status').text(game.status);
+    $.ajax({
+        url        : 'api/doors.php/game/' + game_id,
+        headers    : { 'X-Token': token },
+        method     : 'GET',
+        contentType: 'application/json',
+        success    : function(response) {
+            window.game = response.data;
+            setCookie('game_id', window.game.game_id, 1);
+            startGameTick(play);
+        },
+        error      : function(xhr) {
+            response = xhr.responseJSON;
+
+            console.log('load game error');
+            console.log(response);
+
+            // TODO: make pretty, e.g. modal
+            alert('Error loading game, status: ' + response.status + ', message: ' + response.message);
+        }
+    });
+}
+
+function rollStart(token) {
+    console.log('rolling dice (start)');
+
+    $.ajax({
+        url        : 'api/doors.php/board/dice/',
+        headers    : { 'X-Token': token },
+        method     : 'POST',
+        contentType: 'application/json',
+        success    : function(response) {
+            // TODO: update board dice values
+        },
+        error      : function(xhr) {
+            response = xhr.responseJSON;
+
+            console.log('roll dice error (start)');
+            console.log(response);
+
+            // TODO: make pretty, e.g. modal
+            alert('Error rolling dice (start), status: ' + response.status + ', message: ' + response.message);
+        }
+    });
+}
+
+function rollTurn(token) {
+    console.log('rolling dice (turn)');
+
+    $.ajax({
+        url        : 'api/doors.php/board/dice/',
+        headers    : { 'X-Token': token },
+        method     : 'PUT',
+        contentType: 'application/json',
+        success    : function(response) {
+            // TODO: update board dice values
+        },
+        error      : function(xhr) {
+            response = xhr.responseJSON;
+
+            console.log('roll dice error (turn)');
+            console.log(response);
+
+            // TODO: make pretty, e.g. modal
+            alert('Error rolling dice (turn), status: ' + response.status + ', message: ' + response.message);
+        }
+    });
 }

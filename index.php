@@ -83,7 +83,7 @@ if (!empty($_SESSION['username'])) {
                         </div>
 
                         <!-- roll dice & dice -->
-                        <button id="rollDice" class="roll_dice btn btn-info" type="button">
+                        <button id="rollDice" class="roll_dice btn btn-primary d-none" type="button">
                             <i class="fas fa-fw fa-dice mr-1"></i>
                             Roll
                         </button>
@@ -209,6 +209,7 @@ if (!empty($_SESSION['username'])) {
         <script src="/ADISE20_123970/assets/js/cookies.js"></script>
         <script src="/ADISE20_123970/assets/js/login.js"></script>
         <script src="/ADISE20_123970/assets/js/dice.js"></script>
+        <script src="/ADISE20_123970/assets/js/clock.js"></script>
         <script src="/ADISE20_123970/assets/js/index.js"></script>
     </body>
 </html>
